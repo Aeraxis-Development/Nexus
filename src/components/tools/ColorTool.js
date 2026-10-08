@@ -73,7 +73,7 @@ export default function ColorTool() {
               value={decimal}
               onChange={(e) => syncFromDecimal(e.target.value.replace(/\D/g, ""))}
               className="font-mono"
-              placeholder="5793266"
+              placeholder="Decimal"
             />
           </ToolSection>
 

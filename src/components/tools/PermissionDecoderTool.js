@@ -31,7 +31,7 @@ export default function PermissionDecoderTool() {
           <Input
             value={input}
             onChange={(e) => setInput(e.target.value.replace(/\D/g, ""))}
-            placeholder="8589934592"
+            placeholder="Bitfield"
             className="font-mono flex-1"
             onKeyDown={(e) => e.key === "Enter" && decode()}
           />

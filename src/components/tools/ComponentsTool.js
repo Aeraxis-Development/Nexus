@@ -71,7 +71,7 @@ function ButtonEditor({ button, onChange, onRemove, canRemove }) {
             <Input
               value={button.customId}
               onChange={(e) => onChange({ ...button, customId: e.target.value.slice(0, 100) })}
-              placeholder="custom_id"
+              placeholder="Custom ID"
               className="font-mono text-xs"
             />
           </div>
@@ -82,7 +82,7 @@ function ButtonEditor({ button, onChange, onRemove, canRemove }) {
             <Input
               value={button.url}
               onChange={(e) => onChange({ ...button, url: e.target.value })}
-              placeholder="https://"
+              placeholder="https://…"
               className="font-mono text-xs"
             />
           </div>
@@ -93,7 +93,7 @@ function ButtonEditor({ button, onChange, onRemove, canRemove }) {
             <Input
               value={button.skuId}
               onChange={(e) => onChange({ ...button, skuId: e.target.value.replace(/\D/g, "") })}
-              placeholder="123456789012345678"
+              placeholder="Snowflake ID"
               className="font-mono text-xs"
             />
           </div>
@@ -103,7 +103,7 @@ function ButtonEditor({ button, onChange, onRemove, canRemove }) {
           <Input
             value={button.emojiName}
             onChange={(e) => onChange({ ...button, emojiName: e.target.value })}
-            placeholder="👍 or blobcat"
+            placeholder="Emoji"
             className="text-sm"
           />
         </div>
@@ -112,7 +112,7 @@ function ButtonEditor({ button, onChange, onRemove, canRemove }) {
           <Input
             value={button.emojiId}
             onChange={(e) => onChange({ ...button, emojiId: e.target.value.replace(/\D/g, "") })}
-            placeholder="Optional"
+            placeholder="ID"
             className="font-mono text-xs"
           />
         </div>
@@ -180,6 +180,7 @@ function SelectEditor({ select, onChange, onRemove }) {
           <Input
             value={select.customId}
             onChange={(e) => onChange({ ...select, customId: e.target.value.slice(0, 100) })}
+            placeholder="Custom ID"
             className="font-mono text-xs"
           />
         </div>
@@ -188,6 +189,7 @@ function SelectEditor({ select, onChange, onRemove }) {
           <Input
             value={select.placeholder}
             onChange={(e) => onChange({ ...select, placeholder: e.target.value.slice(0, 150) })}
+            placeholder="Placeholder"
             className="text-sm"
           />
         </div>
@@ -301,7 +303,7 @@ function SelectEditor({ select, onChange, onRemove }) {
               <Input
                 value={opt.description}
                 onChange={(e) => updateOption(index, { description: e.target.value.slice(0, 100) })}
-                placeholder="Description (optional)"
+                placeholder="Description"
                 className="text-xs"
               />
             </div>
@@ -329,6 +331,7 @@ function TextInputEditor({ input, onChange, onRemove }) {
           <Input
             value={input.label}
             onChange={(e) => onChange({ ...input, label: e.target.value.slice(0, 45) })}
+            placeholder="Label"
             className="text-sm"
           />
         </div>
@@ -337,6 +340,7 @@ function TextInputEditor({ input, onChange, onRemove }) {
           <Input
             value={input.customId}
             onChange={(e) => onChange({ ...input, customId: e.target.value.slice(0, 100) })}
+            placeholder="Custom ID"
             className="font-mono text-xs"
           />
         </div>
@@ -353,6 +357,7 @@ function TextInputEditor({ input, onChange, onRemove }) {
           <Input
             value={input.placeholder}
             onChange={(e) => onChange({ ...input, placeholder: e.target.value.slice(0, 100) })}
+            placeholder="Placeholder"
             className="text-sm"
           />
         </div>
@@ -550,6 +555,7 @@ export default function ComponentsTool() {
                 <Input
                   value={modalMeta.title}
                   onChange={(e) => setModalMeta((m) => ({ ...m, title: e.target.value.slice(0, 45) }))}
+                  placeholder="Title"
                   className="text-sm"
                 />
               </div>
@@ -558,6 +564,7 @@ export default function ComponentsTool() {
                 <Input
                   value={modalMeta.customId}
                   onChange={(e) => setModalMeta((m) => ({ ...m, customId: e.target.value.slice(0, 100) }))}
+                  placeholder="Custom ID"
                   className="font-mono text-xs"
                 />
               </div>

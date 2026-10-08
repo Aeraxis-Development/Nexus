@@ -805,8 +805,23 @@ label:hover .nx-toggle:not(.nx-toggle-checked):not(.nx-toggle-disabled):not(:dis
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.nx-input::placeholder {
+input.nx-input {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+textarea.nx-input {
+  height: auto;
+  white-space: pre-wrap;
+  overflow: auto;
+  text-overflow: clip;
+}
+
+.nx-input::placeholder,
+.nx-textarea::placeholder {
   color: var(--nx-text-faint);
+  opacity: 1;
 }
 
 .nx-input:focus {

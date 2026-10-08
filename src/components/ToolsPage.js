@@ -32,7 +32,7 @@ export const TOOL_META = {
   components: { tag: "New", blurb: "Build buttons, select menus, and modal text inputs as JSON." },
   overwrites: { tag: "New", blurb: "Compose channel allow/deny overwrites for roles and members." },
   invite: { tag: "New", blurb: "Resolve invite codes to guild, channel, expiry, and member counts." },
-  vanity: { tag: "New", blurb: "Check whether a discord.gg vanity slug is available or already claimed." },
+  vanity: { tag: "New", blurb: "See whether a discord.gg slug is in use, reserved, or missing a public invite." },
   username: { tag: "New", blurb: "Check whether a unique Discord @username is available or taken." },
   features: { tag: "New", blurb: "Browse guild feature flags and system channel notification bits." },
   poll: { tag: "New", blurb: "Build Discord message poll JSON with answers and duration." },

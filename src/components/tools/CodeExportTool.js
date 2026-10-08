@@ -140,6 +140,7 @@ export default function CodeExportTool() {
             value={json}
             onChange={(e) => setJson(e.target.value)}
             spellCheck={false}
+            placeholder="Paste JSON"
             className="nx-input font-mono text-[11px] sm:text-xs min-h-[320px] sm:min-h-[420px] py-3 resize-y w-full leading-relaxed"
           />
           {result.error && (

@@ -128,6 +128,7 @@ export default function AutomodRegexTool() {
             value={customRaw}
             onChange={(e) => setCustomRaw(e.target.value)}
             rows={5}
+            placeholder="Keyword"
             className="nx-input !h-auto py-3 font-mono text-xs w-full resize-y mb-3"
           />
 
@@ -145,11 +146,11 @@ export default function AutomodRegexTool() {
             Case insensitive <span className="text-[var(--nx-text-faint)] font-mono text-xs">(?i)</span>
           </button>
 
-          <CopyField label="Generated pattern" value={customPattern} placeholder="Add keywords first" />
+          <CopyField label="Generated pattern" value={customPattern} placeholder="Pattern" />
 
           <div className="mt-5 pt-5 border-t border-[var(--nx-border)]">
             <FieldLabel hint="Tests against the selected preset and your custom pattern">Sample message</FieldLabel>
-            <Input value={sample} onChange={(e) => setSample(e.target.value)} className="mb-3" />
+            <Input value={sample} onChange={(e) => setSample(e.target.value)} placeholder="Sample message" className="mb-3" />
             <div className="flex flex-wrap gap-2">
               <Button
                 type="button"

@@ -107,7 +107,7 @@ export default function FeaturesTool() {
               <textarea
                 value={decodeInput}
                 onChange={(e) => setDecodeInput(e.target.value)}
-                placeholder={`["COMMUNITY", "VERIFIED"]\nor COMMUNITY, VERIFIED`}
+                placeholder="COMMUNITY, VERIFIED"
                 className="nx-input font-mono text-xs min-h-[120px] py-2.5 resize-y w-full"
               />
               {decodedFeatures && (
@@ -200,7 +200,7 @@ export default function FeaturesTool() {
               <Input
                 value={sysDecode}
                 onChange={(e) => setSysDecode(e.target.value)}
-                placeholder="e.g. 13"
+                placeholder="Bitfield"
                 className="font-mono text-sm"
               />
               {sysDecoded && (

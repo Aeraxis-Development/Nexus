@@ -51,7 +51,7 @@ export default function MessageLinkTool() {
               <Input
                 value={guildId}
                 onChange={(e) => setGuildId(e.target.value.replace(/\D/g, ""))}
-                placeholder="Guild snowflake"
+                placeholder="Guild ID"
                 className="font-mono text-sm mb-4"
               />
             </>
@@ -61,7 +61,7 @@ export default function MessageLinkTool() {
           <Input
             value={channelId}
             onChange={(e) => setChannelId(e.target.value.replace(/\D/g, ""))}
-            placeholder="Channel snowflake"
+            placeholder="Channel ID"
             className="font-mono text-sm mb-4"
           />
 
@@ -69,7 +69,7 @@ export default function MessageLinkTool() {
           <Input
             value={messageId}
             onChange={(e) => setMessageId(e.target.value.replace(/\D/g, ""))}
-            placeholder="Message snowflake"
+            placeholder="Message ID"
             className="font-mono text-sm mb-4"
           />
 
@@ -92,7 +92,7 @@ export default function MessageLinkTool() {
             ))}
           </div>
 
-          <CopyField label="Message link" value={link} placeholder="Enter a channel ID" />
+          <CopyField label="Message link" value={link} placeholder="Message link" />
         </ToolSection>
 
         <ToolSection title="Parse" description="Break a Discord URL into IDs">
@@ -100,7 +100,7 @@ export default function MessageLinkTool() {
           <Input
             value={parseInput}
             onChange={(e) => setParseInput(e.target.value)}
-            placeholder="https://discord.com/channels/..."
+            placeholder="https://…"
             className="font-mono text-xs"
           />
 

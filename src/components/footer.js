@@ -1,5 +1,5 @@
 import React from "react";
-import { AUTHOR, AUTHOR_URL, DEV_TEAM_URL, DISCORD_URL, PUBLISHER } from "@/lib/seo";
+import { DEV_TEAM_URL, DISCORD_URL, PUBLISHER } from "@/lib/seo";
 
 const LINKS = [
   {
@@ -20,25 +20,16 @@ export default function NexusFooter() {
         <p className="text-[10px] sm:text-[11px] text-[var(--nx-text-faint)] leading-snug text-center sm:text-left">
           <span className="text-[var(--nx-text-muted)] font-semibold">Nexus</span>
           {" · "}
-          <span>Owned by</span>{" "}
+          Made by{" "}
           <a
             href={DEV_TEAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-[var(--nx-accent)] transition hover:text-[var(--nx-accent)]/80"
+            className="font-semibold text-[var(--nx-text-muted)] hover:text-[var(--nx-accent)] transition-colors"
           >
             {PUBLISHER}
           </a>
-          <span className="text-[var(--nx-border-strong)]"> · </span>
-          © {new Date().getFullYear()} by{" "}
-          <a
-            href={AUTHOR_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[var(--nx-text-muted)] font-medium hover:text-[var(--nx-accent)] transition-colors"
-          >
-            {AUTHOR}
-          </a>
+          {" · "}© {new Date().getFullYear()}
           <span className="block sm:inline">
             <span className="hidden sm:inline"> · </span>
             Not affiliated with Discord Inc.

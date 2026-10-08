@@ -89,7 +89,7 @@ export default function FlagsTool() {
           <Input
             value={decodeInput}
             onChange={(e) => setDecodeInput(e.target.value)}
-            placeholder="e.g. 4194304"
+            placeholder="Bitfield"
             className="font-mono text-sm"
           />
           {decoded && (

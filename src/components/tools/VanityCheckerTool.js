@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CheckCircle2, ExternalLink, Loader2, Search, XCircle } from "lucide-react";
+import { AlertTriangle, ExternalLink, Loader2, Search, XCircle } from "lucide-react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import ToolPanel, {
@@ -10,7 +10,7 @@ import ToolPanel, {
   StatCard,
   EmptyState,
 } from "../ToolPanel";
-import { parseVanityCode, vanityUrl } from "../../lib/vanity";
+import { inspectVanityInput, vanityUrl } from "../../lib/vanity";
 import { cn } from "@/lib/utils";
 
 function InfoRow({ label, value, mono }) {
@@ -32,17 +32,34 @@ function InfoRow({ label, value, mono }) {
   );
 }
 
-function AvailabilityBanner({ available, isVanity, code }) {
-  if (available) {
+function AvailabilityBanner({ status, isVanity, code }) {
+  if (status === "taken") {
     return (
-      <div className="flex items-start gap-3 rounded-xl border border-[var(--nx-border)] bg-[var(--nx-green-soft)] px-4 py-3.5">
-        <CheckCircle2 className="w-5 h-5 text-[var(--nx-green)] shrink-0 mt-0.5" />
+      <div className="flex items-start gap-3 rounded-xl border border-[var(--nx-border)] bg-[var(--nx-red-soft)] px-4 py-3.5">
+        <XCircle className="w-5 h-5 text-[var(--nx-red)] shrink-0 mt-0.5" />
         <div className="min-w-0">
-          <p className="text-sm font-semibold text-[var(--nx-green)]">Available</p>
+          <p className="text-sm font-semibold text-[var(--nx-red)]">Taken</p>
           <p className="text-xs text-[var(--nx-text-muted)] mt-0.5">
-            No public invite found for{" "}
-            <span className="font-mono text-[var(--nx-text-heading)]">discord.gg/{code}</span>. Claiming
-            a vanity still requires Server Boost Level 3 and the Vanity URL feature.
+            {isVanity
+              ? "This code is claimed as a guild vanity URL."
+              : "An invite with this code exists (may be a standard invite, not a vanity)."}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (status === "reserved") {
+    return (
+      <div className="flex items-start gap-3 rounded-xl border border-[var(--nx-border)] bg-[var(--nx-red-soft)] px-4 py-3.5">
+        <XCircle className="w-5 h-5 text-[var(--nx-red)] shrink-0 mt-0.5" />
+        <div className="min-w-0">
+          <p className="text-sm font-semibold text-[var(--nx-red)]">Reserved</p>
+          <p className="text-xs text-[var(--nx-text-muted)] mt-0.5">
+            Discord blocks{" "}
+            <span className="font-mono text-[var(--nx-text-heading)]">discord.gg/{code}</span> even
+            though no server invite is using it. Saving it under Custom Invite Link fails with
+            “invalid characters, too short, or already taken.”
           </p>
         </div>
       </div>
@@ -50,14 +67,16 @@ function AvailabilityBanner({ available, isVanity, code }) {
   }
 
   return (
-    <div className="flex items-start gap-3 rounded-xl border border-[var(--nx-border)] bg-[var(--nx-red-soft)] px-4 py-3.5">
-      <XCircle className="w-5 h-5 text-[var(--nx-red)] shrink-0 mt-0.5" />
+    <div className="flex items-start gap-3 rounded-xl border border-[var(--nx-border)] bg-[color-mix(in_srgb,var(--nx-yellow)_14%,transparent)] px-4 py-3.5">
+      <AlertTriangle className="w-5 h-5 text-[var(--nx-yellow)] shrink-0 mt-0.5" />
       <div className="min-w-0">
-        <p className="text-sm font-semibold text-[var(--nx-red)]">Taken</p>
+        <p className="text-sm font-semibold text-[var(--nx-yellow)]">No public invite</p>
         <p className="text-xs text-[var(--nx-text-muted)] mt-0.5">
-          {isVanity
-            ? "This code is claimed as a guild vanity URL."
-            : "An invite with this code exists (may be a standard invite, not a vanity)."}
+          <span className="font-mono text-[var(--nx-text-heading)]">discord.gg/{code}</span> does not
+          resolve. Discord can still reject the save: reserved words, blocked terms, and codes held
+          for 30 days after a server loses Boost Level 3 or is removed all show up this way. That
+          error is “invalid characters, too short, or already taken.” A code Discord accepts still
+          needs Boost Level 3.
         </p>
       </div>
     </div>
@@ -72,9 +91,9 @@ export default function VanityCheckerTool() {
 
   const check = async (e) => {
     e?.preventDefault();
-    const code = parseVanityCode(input);
-    if (!code) {
-      setError("Enter a valid vanity code or discord.gg link.");
+    const parsed = inspectVanityInput(input);
+    if (parsed.error) {
+      setError(parsed.error);
       setData(null);
       return;
     }
@@ -108,10 +127,10 @@ export default function VanityCheckerTool() {
     <ToolPanel fill>
       <ToolSection
         title="Check"
-        description="See if a discord.gg vanity slug is free — no token required"
+        description="See if a discord.gg slug is already in use — no token required"
       >
         <form onSubmit={check}>
-          <FieldLabel hint="Slug or full discord.gg URL">Vanity</FieldLabel>
+          <FieldLabel hint="2–25 letters, numbers, or dashes">Vanity</FieldLabel>
           <div className="flex flex-col sm:flex-row gap-2">
             <div className="relative flex-1 min-w-0">
               <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs font-mono text-[var(--nx-text-faint)]">
@@ -120,8 +139,8 @@ export default function VanityCheckerTool() {
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="my-server"
-                className="font-mono text-sm pl-[5.75rem]"
+                placeholder="vanity"
+                className="font-mono text-sm !pl-[5.75rem]"
               />
             </div>
             <Button type="submit" disabled={loading || !input.trim()} className="shrink-0 w-full sm:w-auto">
@@ -137,21 +156,22 @@ export default function VanityCheckerTool() {
         <EmptyState
           icon={Search}
           title="Check a vanity URL"
-          description="Enter a custom invite slug to see whether discord.gg/… is available or already claimed."
+          description="Enter a custom invite slug. A missing invite can still be reserved or on hold, so Discord may reject it when you save."
         />
       )}
 
       {data && (
         <>
-          <AvailabilityBanner available={data.available} isVanity={data.isVanity} code={data.code} />
+          <AvailabilityBanner status={data.status} isVanity={data.isVanity} code={data.code} />
 
           <StatGrid>
             <StatCard
               label="Status"
-              value={data.available ? "Available" : "Taken"}
-              accent={data.available}
+              value={
+                data.status === "taken" ? "Taken" : data.status === "reserved" ? "Reserved" : "No invite"
+              }
             />
-            <StatCard label="Type" value={data.available ? "—" : data.isVanity ? "Vanity" : "Invite"} />
+            <StatCard label="Type" value={data.status === "taken" ? (data.isVanity ? "Vanity" : "Invite") : "—"} />
             <StatCard
               label="Members"
               value={invite?.approximateMemberCount?.toLocaleString?.() ?? "—"}

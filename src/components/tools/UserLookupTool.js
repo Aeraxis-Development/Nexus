@@ -101,7 +101,7 @@ export default function UserLookupTool() {
             <Input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="123456789012345678"
+              placeholder="Snowflake ID"
               className="font-mono text-sm flex-1 min-w-0"
             />
             <Button

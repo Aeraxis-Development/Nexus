@@ -340,7 +340,7 @@ export default function DiscordSendPanel({
               <Input
                 value={webhookUrl}
                 onChange={(e) => setWebhookUrl(e.target.value)}
-                placeholder="https://discord.com/api/webhooks/..."
+                placeholder="https://…"
                 className="font-mono text-xs"
               />
               {webhookUrl && !webhookValid && (
@@ -362,7 +362,7 @@ export default function DiscordSendPanel({
                   <Input
                     value={webhookAvatar}
                     onChange={(e) => setWebhookAvatar(e.target.value)}
-                    placeholder="https://..."
+                    placeholder="https://…"
                   />
                 </div>
               </div>

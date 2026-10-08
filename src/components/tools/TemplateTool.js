@@ -73,7 +73,7 @@ export default function TemplateTool() {
             <Input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="discord.new/… or template code"
+              placeholder="discord.new/…"
               className="font-mono text-sm"
             />
           </div>

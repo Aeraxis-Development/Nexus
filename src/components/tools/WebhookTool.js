@@ -32,7 +32,7 @@ export default function WebhookTool() {
                 <textarea
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
-                  placeholder="Hello from Nexus!"
+                  placeholder="Message"
                   rows={5}
                   className="nx-textarea"
                 />
@@ -51,7 +51,7 @@ export default function WebhookTool() {
                   <Input
                     value={avatarUrl}
                     onChange={(e) => setAvatarUrl(e.target.value)}
-                    placeholder="https://..."
+                    placeholder="https://…"
                   />
                 </div>
               </div>
@@ -60,7 +60,7 @@ export default function WebhookTool() {
                 <Input
                   value={threadName}
                   onChange={(e) => setThreadName(e.target.value)}
-                  placeholder="Optional thread name"
+                  placeholder="Thread name"
                 />
               </div>
             </div>

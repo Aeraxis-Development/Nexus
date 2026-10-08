@@ -70,7 +70,7 @@ export default function UsernameHistoryTool() {
             <Input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="123456789012345678"
+              placeholder="Snowflake ID"
               className="font-mono text-sm flex-1 min-w-0"
             />
             <Button type="submit" disabled={loading || !input.trim()} className="shrink-0 w-full sm:w-auto">

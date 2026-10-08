@@ -37,7 +37,7 @@ export default function OAuthTool() {
           <Input
             value={clientId}
             onChange={(e) => setClientId(e.target.value)}
-            placeholder="123456789012345678"
+            placeholder="Snowflake ID"
             className="font-mono"
           />
         </ToolSection>
@@ -49,7 +49,7 @@ export default function OAuthTool() {
               <Input
                 value={redirectUri}
                 onChange={(e) => setRedirectUri(e.target.value)}
-                placeholder="https://example.com/callback"
+                placeholder="https://…"
               />
             </div>
             <Toggle
@@ -63,7 +63,7 @@ export default function OAuthTool() {
 
         <ToolSection title="Generated URL" className="xl:col-span-1">
           <div className="space-y-3">
-            <CopyField value={url} placeholder="Enter a Client ID to generate..." label="Invite Link" />
+            <CopyField value={url} placeholder="Invite URL" label="Invite Link" />
             {clientId.trim() && (
               <div className="flex flex-wrap gap-2 text-xs">
               <span className="inline-flex px-3 py-1.5 rounded-lg bg-[var(--nx-bg-input)] border border-[var(--nx-border)] text-xs text-[var(--nx-text-muted)]">

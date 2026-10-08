@@ -152,6 +152,7 @@ export default function ScheduledEventTool() {
           <Input
             value={state.name}
             onChange={(e) => update({ name: e.target.value.slice(0, 100) })}
+            placeholder="Event name"
             className="text-sm mb-4"
           />
 
@@ -159,6 +160,7 @@ export default function ScheduledEventTool() {
           <textarea
             value={state.description}
             onChange={(e) => update({ description: e.target.value.slice(0, 1000) })}
+            placeholder="Description"
             className="nx-input min-h-[88px] py-2.5 text-sm resize-y w-full mb-4"
           />
 
@@ -186,6 +188,7 @@ export default function ScheduledEventTool() {
               <Input
                 value={state.channelId}
                 onChange={(e) => update({ channelId: e.target.value.replace(/\D/g, "") })}
+                placeholder="Channel ID"
                 className="font-mono text-sm"
               />
             </div>
@@ -195,7 +198,7 @@ export default function ScheduledEventTool() {
               <Input
                 value={state.entityMetadataLocation}
                 onChange={(e) => update({ entityMetadataLocation: e.target.value.slice(0, 100) })}
-                placeholder="Conference Center, Room A"
+                placeholder="Location"
                 className="text-sm"
               />
             </div>
@@ -226,7 +229,7 @@ export default function ScheduledEventTool() {
           <Input
             value={state.image}
             onChange={(e) => update({ image: e.target.value })}
-            placeholder="data:image/png;base64,…"
+            placeholder="https://…"
             className="font-mono text-xs"
           />
         </ToolSection>

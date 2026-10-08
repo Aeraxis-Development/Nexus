@@ -131,7 +131,7 @@ function OptionEditor({ option, siblings, onChange, onRemove, depth = 0 }) {
           <Input
             value={option.name}
             onChange={(e) => update({ name: e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, "") })}
-            placeholder="option_name"
+            placeholder="Name"
             className="font-mono text-xs"
           />
           {nameError && <p className="mt-1 text-xs text-[#f0b232]">{nameError}</p>}
@@ -163,7 +163,7 @@ function OptionEditor({ option, siblings, onChange, onRemove, depth = 0 }) {
         <Input
           value={option.description}
           onChange={(e) => update({ description: e.target.value })}
-          placeholder="What this option does"
+          placeholder="Description"
         />
       </div>
 
@@ -192,7 +192,7 @@ function OptionEditor({ option, siblings, onChange, onRemove, depth = 0 }) {
             <Input
               value={option.maxLength}
               onChange={(e) => update({ maxLength: e.target.value.replace(/\D/g, "") })}
-              placeholder="6000"
+              placeholder="Max"
               className="font-mono text-xs"
             />
           </div>
@@ -213,6 +213,7 @@ function OptionEditor({ option, siblings, onChange, onRemove, depth = 0 }) {
             <Input
               value={option.minValue}
               onChange={(e) => update({ minValue: e.target.value })}
+              placeholder="Min"
               className="font-mono text-xs"
             />
           </div>
@@ -221,6 +222,7 @@ function OptionEditor({ option, siblings, onChange, onRemove, depth = 0 }) {
             <Input
               value={option.maxValue}
               onChange={(e) => update({ maxValue: e.target.value })}
+              placeholder="Max"
               className="font-mono text-xs"
             />
           </div>
@@ -451,7 +453,7 @@ export default function SlashCommandTool() {
                     onChange={(e) =>
                       updateCommand({ name: e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, "") })
                     }
-                    placeholder="command_name"
+                    placeholder="Name"
                     className="font-mono"
                   />
                   {nameError && <p className="mt-1 text-xs text-[#f0b232]">{nameError}</p>}
@@ -472,7 +474,7 @@ export default function SlashCommandTool() {
                 <Input
                   value={command.description}
                   onChange={(e) => updateCommand({ description: e.target.value })}
-                  placeholder="What this command does"
+                  placeholder="Description"
                 />
               </div>
 
@@ -496,7 +498,7 @@ export default function SlashCommandTool() {
                   onChange={(e) =>
                     updateCommand({ defaultMemberPermissions: e.target.value.replace(/\D/g, "") })
                   }
-                  placeholder="8589934592"
+                  placeholder="Bitfield"
                   className="font-mono text-xs"
                 />
               </div>

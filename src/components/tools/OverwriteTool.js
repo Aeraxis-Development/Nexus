@@ -88,7 +88,7 @@ export default function OverwriteTool() {
               <Input
                 value={targetId}
                 onChange={(e) => setTargetId(e.target.value.replace(/\D/g, ""))}
-                placeholder="123456789012345678"
+                placeholder="Snowflake ID"
                 className="font-mono text-sm"
               />
             </div>

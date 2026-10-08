@@ -23,21 +23,21 @@ const TYPES = [
     id: "user",
     label: "User",
     icon: User,
-    placeholder: "User snowflake ID",
+    placeholder: "User ID",
     hint: "Bot token only — no shared server needed",
   },
   {
     id: "guild",
     label: "Server",
     icon: Server,
-    placeholder: "Guild snowflake ID",
+    placeholder: "Server ID",
     hint: "Uses Discord’s public widget or discovery preview API",
   },
   {
     id: "app",
     label: "Application",
     icon: Bot,
-    placeholder: "Application / client ID",
+    placeholder: "Application ID",
     hint: "Bot token only — no shared server needed",
   },
 ];
@@ -327,7 +327,7 @@ export default function WidgetsTool() {
           </ToolSection>
 
           <ToolSection title="Embed" description={entity ? `~${embedHeight}px tall` : "Available after lookup"}>
-            <CopyField label="Widget URL" value={widgetUrl} placeholder="Fetch an ID first" />
+            <CopyField label="Widget URL" value={widgetUrl} placeholder="Widget URL" />
             <div className="mt-4">
               <CopyCodeBlock
                 label="Iframe embed"

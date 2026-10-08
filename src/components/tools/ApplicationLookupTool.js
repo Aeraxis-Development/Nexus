@@ -303,7 +303,7 @@ export default function ApplicationLookupTool() {
             <Input
               value={searchId}
               onChange={(e) => { setSearchId(e.target.value); setApplicationInfo(null); setError(""); }}
-              placeholder="123456789012345678"
+              placeholder="Snowflake ID"
               className="font-mono flex-1 min-w-0"
               onKeyDown={(e) => e.key === "Enter" && fetchApplicationInfo()}
             />

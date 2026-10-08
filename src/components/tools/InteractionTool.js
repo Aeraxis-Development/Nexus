@@ -120,7 +120,7 @@ export default function InteractionTool() {
                 <textarea
                   value={state.content}
                   onChange={(e) => update({ content: e.target.value })}
-                  placeholder="Message content…"
+                  placeholder="Message"
                   className="nx-input min-h-[88px] py-2.5 text-sm resize-y w-full"
                 />
               </div>
@@ -142,6 +142,7 @@ export default function InteractionTool() {
                   <textarea
                     value={state.embedsJson}
                     onChange={(e) => update({ embedsJson: e.target.value })}
+                    placeholder="Paste embed JSON"
                     className="nx-input font-mono text-xs min-h-[120px] py-2.5 resize-y w-full"
                     spellCheck={false}
                   />
@@ -159,6 +160,7 @@ export default function InteractionTool() {
                   <textarea
                     value={state.componentsJson}
                     onChange={(e) => update({ componentsJson: e.target.value })}
+                    placeholder="Paste component JSON"
                     className="nx-input font-mono text-xs min-h-[140px] py-2.5 resize-y w-full"
                     spellCheck={false}
                   />
@@ -339,7 +341,7 @@ export default function InteractionTool() {
                           },
                         })
                       }
-                      placeholder="custom_id"
+                      placeholder="Custom ID"
                       className="font-mono text-xs"
                     />
                   </div>

@@ -45,7 +45,7 @@ export default function MentionsTool() {
               <Input
                 value={id}
                 onChange={(e) => setId(e.target.value.replace(/\D/g, ""))}
-                placeholder="123456789012345678"
+                placeholder="Snowflake ID"
                 className="font-mono text-sm mb-4"
               />
             </>
@@ -78,7 +78,7 @@ export default function MentionsTool() {
             />
           )}
 
-          <CopyField label="Mention" value={mention} placeholder="Select a type and enter an ID" />
+          <CopyField label="Mention" value={mention} placeholder="Mention" />
           {type?.hint && (
             <p className="mt-3 text-xs text-[var(--nx-text-faint)]">{type.hint}</p>
           )}
@@ -89,7 +89,7 @@ export default function MentionsTool() {
           <Input
             value={parseInput}
             onChange={(e) => setParseInput(e.target.value)}
-            placeholder="<@123456789012345678>"
+            placeholder="<@user>"
             className="font-mono text-sm"
           />
 

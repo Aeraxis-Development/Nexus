@@ -78,7 +78,7 @@ export default function MarkdownTool() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             className="nx-textarea min-h-[200px] sm:min-h-[280px] font-mono text-sm"
-            placeholder="Type markdown here…"
+            placeholder="Markdown"
           />
           <p className="mt-2 text-xs text-[var(--nx-text-faint)]">{charCount} characters</p>
         </ToolSection>

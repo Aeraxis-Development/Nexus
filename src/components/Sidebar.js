@@ -76,7 +76,7 @@ export const TOOL_GROUPS = [
       { id: "username-history", label: "Username History", icon: History, description: "Track username & display name changes" },
       { id: "guild", label: "Guild Lookup", icon: Server, description: "Resolve servers by snowflake ID" },
       { id: "invite", label: "Invite Lookup", icon: Ticket, description: "Resolve invite codes & links" },
-      { id: "vanity", label: "Vanity Checker", icon: Globe2, description: "Check discord.gg vanity availability" },
+      { id: "vanity", label: "Vanity Checker", icon: Globe2, description: "See if a discord.gg slug is already in use" },
       { id: "username", label: "Username Checker", icon: AtSign, description: "Check @username availability" },
       { id: "template", label: "Template Lookup", icon: FileStack, description: "Resolve discord.new templates" },
       { id: "snowflake", label: "Snowflake", icon: Hash, description: "Decode Discord IDs" },

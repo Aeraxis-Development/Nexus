@@ -63,7 +63,7 @@ export default function PollTool() {
           <Input
             value={poll.question}
             onChange={(e) => update({ question: e.target.value.slice(0, 300) })}
-            placeholder="Ask something…"
+            placeholder="Question"
             className="text-sm mb-4"
           />
 

@@ -14,7 +14,6 @@ import {
   PUBLISHER_URL,
   SITE_NAME,
   THEME_COLOR,
-  TWITTER_HANDLE,
   buildTitle,
   copyrightNotice,
   getSiteUrl,
@@ -81,8 +80,6 @@ export default function Seo({
       <meta property="og:image:height" content={String(OG_IMAGE_HEIGHT)} />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={TWITTER_HANDLE} />
-      <meta name="twitter:creator" content={TWITTER_HANDLE} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />

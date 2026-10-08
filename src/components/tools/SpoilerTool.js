@@ -75,7 +75,7 @@ export default function SpoilerTool() {
             onChange={(e) => setText(e.target.value)}
             rows={8}
             className="nx-input !h-auto py-3 font-mono text-sm w-full resize-y min-h-[160px]"
-            placeholder="Type something to hide…"
+            placeholder="Text to hide"
           />
 
           <div className="flex flex-wrap gap-2 mt-3">
@@ -104,7 +104,7 @@ export default function SpoilerTool() {
             </p>
           </div>
 
-          <CopyField label="Spoiler text" value={output} placeholder="Output appears here" />
+          <CopyField label="Spoiler text" value={output} placeholder="Spoiler" />
           <div className="mt-4">
             <CopyCodeBlock
               value={output || ""}

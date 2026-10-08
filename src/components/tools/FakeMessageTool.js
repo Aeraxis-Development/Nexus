@@ -149,25 +149,26 @@ export default function FakeMessageTool() {
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 sm:gap-4">
         <ToolSection title="Message" description="Build a realistic Discord-style message screenshot">
           <FieldLabel>Username</FieldLabel>
-          <Input value={username} onChange={(e) => setUsername(e.target.value)} className="mb-3" maxLength={32} />
+          <Input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" className="mb-3" maxLength={32} />
 
           <FieldLabel>Message</FieldLabel>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
             rows={4}
+            placeholder="Message"
             className="nx-input !h-auto py-3 text-sm w-full resize-y mb-3"
             maxLength={500}
           />
 
           <FieldLabel>Timestamp label</FieldLabel>
-          <Input value={timestamp} onChange={(e) => setTimestamp(e.target.value)} className="mb-3" />
+          <Input value={timestamp} onChange={(e) => setTimestamp(e.target.value)} placeholder="Time" className="mb-3" />
 
           <FieldLabel hint="Direct image URL (CDN avatar works best)">Avatar URL</FieldLabel>
           <Input
             value={avatarUrl}
             onChange={(e) => setAvatarUrl(e.target.value)}
-            placeholder="https://cdn.discordapp.com/avatars/…"
+            placeholder="https://…"
             className="mb-3 font-mono text-xs"
           />
 

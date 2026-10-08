@@ -145,7 +145,7 @@ export default function FakePingTool() {
           {style === "mention" && (
             <>
               <FieldLabel>Label</FieldLabel>
-              <Input value={label} onChange={(e) => setLabel(e.target.value)} className="mb-3" maxLength={24} />
+              <Input value={label} onChange={(e) => setLabel(e.target.value)} placeholder="Label" className="mb-3" maxLength={24} />
             </>
           )}
 

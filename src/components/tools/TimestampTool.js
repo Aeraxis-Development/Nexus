@@ -82,7 +82,7 @@ export default function TimestampTool() {
                 }
               }}
               className="font-mono"
-              placeholder={String(now)}
+              placeholder="Unix time"
             />
             <p className="mt-2 text-xs text-[var(--nx-text-muted)]">
               Current: <span className="font-mono text-[var(--nx-accent)]">{now}</span>

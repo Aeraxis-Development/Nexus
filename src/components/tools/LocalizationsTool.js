@@ -66,6 +66,7 @@ export default function LocalizationsTool() {
                     baseName: e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 32),
                   }))
                 }
+                placeholder="Name"
                 className="font-mono text-sm"
               />
             </div>
@@ -76,6 +77,7 @@ export default function LocalizationsTool() {
                 onChange={(e) =>
                   setState((s) => ({ ...s, baseDescription: e.target.value.slice(0, 100) }))
                 }
+                placeholder="Description"
                 className="text-sm"
               />
             </div>
@@ -132,13 +134,13 @@ export default function LocalizationsTool() {
                       name: e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 32),
                     })
                   }
-                  placeholder="Localized name"
+                  placeholder="Name"
                   className="font-mono text-xs"
                 />
                 <Input
                   value={row.description}
                   onChange={(e) => updateRow(index, { description: e.target.value.slice(0, 100) })}
-                  placeholder="Localized description"
+                  placeholder="Description"
                   className="text-xs"
                 />
               </div>

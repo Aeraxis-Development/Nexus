@@ -18,7 +18,7 @@ export default function FontGeneratorTool() {
         <Input
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Type something…"
+          placeholder="Text"
           className="text-sm"
           maxLength={200}
         />

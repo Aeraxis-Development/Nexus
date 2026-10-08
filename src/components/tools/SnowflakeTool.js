@@ -27,7 +27,7 @@ export default function SnowflakeTool() {
           <Input
             value={id}
             onChange={(e) => setId(e.target.value.replace(/\D/g, ""))}
-            placeholder="1234567890123456789"
+            placeholder="Snowflake ID"
             className="font-mono"
           />
           {id && !decoded && (

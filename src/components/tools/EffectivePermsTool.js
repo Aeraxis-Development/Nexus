@@ -170,7 +170,7 @@ export default function EffectivePermsTool() {
                         ),
                       })
                     }
-                    placeholder="Permissions integer"
+                    placeholder="Bitfield"
                     className="font-mono text-xs"
                   />
                 </div>

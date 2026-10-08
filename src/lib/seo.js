@@ -8,13 +8,12 @@ export const DEFAULT_DESCRIPTION =
 export const DEFAULT_KEYWORDS =
   "discord, bot, permissions, calculator, oauth, embed, webhook, snowflake, flags, mentions, nexus, discord toolkit, discord developer tools, aeraxis, aeraxis development";
 export const THEME_COLOR = "#0d9488";
-export const AUTHOR = "ThunderDoesDev";
-export const AUTHOR_URL = "https://thunderdoesdev.gg";
 export const PUBLISHER = "Aeraxis Development";
 export const PUBLISHER_URL = "https://aeraxis.dev";
+export const AUTHOR = PUBLISHER;
+export const AUTHOR_URL = PUBLISHER_URL;
 export const DEV_TEAM_URL = PUBLISHER_URL;
 export const DISCORD_URL = "https://discord.gg/thunderdoesdev";
-export const TWITTER_HANDLE = "@thunderdoesdev";
 export const OG_IMAGE_PATH = "/og.jpg";
 export const OG_IMAGE_WIDTH = 1200;
 export const OG_IMAGE_HEIGHT = 630;
@@ -35,7 +34,7 @@ export function absoluteUrl(path = "/") {
 export function buildTitle(pageTitle) {
   if (!pageTitle || pageTitle === DEFAULT_TITLE) return DEFAULT_TITLE;
   if (pageTitle.includes(SITE_NAME)) return pageTitle;
-  return `${pageTitle} — ${SITE_NAME}`;
+  return `${SITE_NAME} — ${pageTitle}`;
 }
 
 export function copyrightYear() {
@@ -68,10 +67,10 @@ export function webAppJsonLd({
   const siteUrl = getSiteUrl() || originFrom(url) || undefined;
   const pageUrl = url || siteUrl;
   const orgId = entityId(siteUrl, "organization");
-  const authorId = entityId(siteUrl, "author");
   const websiteId = entityId(siteUrl, "website");
   const appId = entityId(siteUrl, "app");
   const pageId = entityId(pageUrl, "webpage");
+  const orgRef = orgId ? { "@id": orgId } : undefined;
 
   const organization = {
     "@type": "Organization",
@@ -81,15 +80,6 @@ export function webAppJsonLd({
   };
   if (orgId) organization["@id"] = orgId;
 
-  const author = {
-    "@type": "Person",
-    name: AUTHOR,
-    url: AUTHOR_URL,
-    sameAs: [AUTHOR_URL, `https://twitter.com/${TWITTER_HANDLE.replace(/^@/, "")}`],
-    worksFor: orgId ? { "@id": orgId } : { "@type": "Organization", name: PUBLISHER, url: PUBLISHER_URL },
-  };
-  if (authorId) author["@id"] = authorId;
-
   const website = {
     "@type": "WebSite",
     name: SITE_NAME,
@@ -97,9 +87,9 @@ export function webAppJsonLd({
     description: DEFAULT_DESCRIPTION,
     url: siteUrl,
     inLanguage: "en",
-    publisher: orgId ? { "@id": orgId } : organization,
-    author: authorId ? { "@id": authorId } : author,
-    copyrightHolder: orgId ? { "@id": orgId } : organization,
+    publisher: orgRef || organization,
+    author: orgRef || organization,
+    copyrightHolder: orgRef || organization,
     copyrightYear: copyrightYear(),
   };
   if (websiteId) website["@id"] = websiteId;
@@ -120,17 +110,17 @@ export function webAppJsonLd({
       price: "0",
       priceCurrency: "USD",
     },
-    author: authorId ? { "@id": authorId } : author,
-    creator: authorId ? { "@id": authorId } : author,
-    publisher: orgId ? { "@id": orgId } : organization,
-    sourceOrganization: orgId ? { "@id": orgId } : organization,
-    copyrightHolder: orgId ? { "@id": orgId } : organization,
+    author: orgRef || organization,
+    creator: orgRef || organization,
+    publisher: orgRef || organization,
+    sourceOrganization: orgRef || organization,
+    copyrightHolder: orgRef || organization,
     copyrightYear: copyrightYear(),
   };
   if (appId) app["@id"] = appId;
   if (websiteId) app.isPartOf = { "@id": websiteId };
 
-  const graph = [organization, author, website, app];
+  const graph = [organization, website, app];
 
   if (pageUrl) {
     const webpage = {
@@ -141,9 +131,9 @@ export function webAppJsonLd({
       inLanguage: "en",
       isPartOf: websiteId ? { "@id": websiteId } : website,
       about: appId ? { "@id": appId } : app,
-      author: authorId ? { "@id": authorId } : author,
-      publisher: orgId ? { "@id": orgId } : organization,
-      copyrightHolder: orgId ? { "@id": orgId } : organization,
+      author: orgRef || organization,
+      publisher: orgRef || organization,
+      copyrightHolder: orgRef || organization,
     };
     if (pageId) webpage["@id"] = pageId;
     graph.push(webpage);

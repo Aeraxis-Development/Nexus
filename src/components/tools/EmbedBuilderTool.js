@@ -390,7 +390,7 @@ function EmbedEditor({ embed, onChange }) {
         <textarea
           value={embed.description}
           onChange={(e) => update({ description: e.target.value })}
-          placeholder="Embed description (supports markdown)"
+          placeholder="Supports markdown"
           rows={5}
           className="nx-textarea"
         />
@@ -416,7 +416,7 @@ function EmbedEditor({ embed, onChange }) {
           <Input
             value={embed.url}
             onChange={(e) => update({ url: e.target.value })}
-            placeholder="https://..."
+            placeholder="https://…"
           />
         </div>
       </div>
@@ -426,7 +426,7 @@ function EmbedEditor({ embed, onChange }) {
           <Input
             value={embed.imageUrl}
             onChange={(e) => update({ imageUrl: e.target.value })}
-            placeholder="https://..."
+            placeholder="https://…"
           />
         </div>
         <div>
@@ -434,7 +434,7 @@ function EmbedEditor({ embed, onChange }) {
           <Input
             value={embed.thumbnailUrl}
             onChange={(e) => update({ thumbnailUrl: e.target.value })}
-            placeholder="https://..."
+            placeholder="https://…"
           />
         </div>
       </div>
@@ -471,7 +471,7 @@ function EmbedEditor({ embed, onChange }) {
             <Input
               value={embed.authorUrl}
               onChange={(e) => update({ authorUrl: e.target.value })}
-              placeholder="https://..."
+              placeholder="https://…"
             />
           </div>
           <div>
@@ -479,7 +479,7 @@ function EmbedEditor({ embed, onChange }) {
             <Input
               value={embed.authorIconUrl}
               onChange={(e) => update({ authorIconUrl: e.target.value })}
-              placeholder="https://..."
+              placeholder="https://…"
             />
           </div>
         </div>
@@ -500,7 +500,7 @@ function EmbedEditor({ embed, onChange }) {
           <Input
             value={embed.footerIconUrl}
             onChange={(e) => update({ footerIconUrl: e.target.value })}
-            placeholder="https://..."
+            placeholder="https://…"
           />
         </div>
       </div>
@@ -931,7 +931,7 @@ export default function EmbedBuilderTool() {
               <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                placeholder="Message text outside the embed..."
+                placeholder="Message text"
                 rows={4}
                 maxLength={2000}
                 className="nx-textarea"
@@ -1004,7 +1004,7 @@ export default function EmbedBuilderTool() {
             <textarea
               value={componentsJson}
               onChange={(e) => setComponentsJson(e.target.value)}
-              placeholder='[{"type":1,"components":[...]}]'
+              placeholder="Paste component JSON"
               rows={5}
               className="nx-textarea font-mono text-xs"
             />
@@ -1017,7 +1017,7 @@ export default function EmbedBuilderTool() {
             <textarea
               value={importJson}
               onChange={(e) => setImportJson(e.target.value)}
-              placeholder='{"content":"...","embeds":[...]}'
+              placeholder="Paste message JSON"
               rows={4}
               className="nx-textarea font-mono text-xs"
             />
@@ -1075,7 +1075,7 @@ export default function EmbedBuilderTool() {
                     <Input
                       value={webhookUrl}
                       onChange={(e) => setWebhookUrl(e.target.value)}
-                      placeholder="https://discord.com/api/webhooks/..."
+                      placeholder="https://…"
                       className="font-mono text-xs"
                     />
                     {webhookUrl && !webhookValid && (
@@ -1096,7 +1096,7 @@ export default function EmbedBuilderTool() {
                       <Input
                         value={webhookAvatar}
                         onChange={(e) => setWebhookAvatar(e.target.value)}
-                        placeholder="https://..."
+                        placeholder="https://…"
                       />
                     </div>
                   </div>

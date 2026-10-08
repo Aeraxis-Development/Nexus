@@ -95,8 +95,8 @@ export default function UsernameCheckerTool() {
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="coolname"
-                className="font-mono text-sm pl-9"
+                placeholder="username"
+                className="font-mono text-sm !pl-9"
                 autoCapitalize="off"
                 autoCorrect="off"
                 spellCheck={false}

@@ -181,6 +181,7 @@ export default function AutomodTool() {
           <Input
             value={state.name}
             onChange={(e) => update({ name: e.target.value.slice(0, 100) })}
+            placeholder="Rule name"
             className="text-sm mb-4"
           />
 
@@ -219,21 +220,21 @@ export default function AutomodTool() {
                 label="Keywords"
                 values={state.keywords}
                 onChange={(keywords) => update({ keywords })}
-                placeholder="discord.gg/*"
+                placeholder="Keyword"
                 max={1000}
               />
               <ListEditor
                 label="Regex patterns"
                 values={state.regexPatterns}
                 onChange={(regexPatterns) => update({ regexPatterns })}
-                placeholder="(?i)badword"
+                placeholder="badword"
                 max={10}
               />
               <ListEditor
                 label="Allow list"
                 values={state.allowList}
                 onChange={(allowList) => update({ allowList })}
-                placeholder="allowed phrase"
+                placeholder="Phrase"
                 max={100}
               />
             </div>
@@ -267,7 +268,7 @@ export default function AutomodTool() {
                 label="Allow list"
                 values={state.allowList}
                 onChange={(allowList) => update({ allowList })}
-                placeholder="allowed phrase"
+                placeholder="Phrase"
               />
             </div>
           )}
@@ -282,6 +283,7 @@ export default function AutomodTool() {
                   max={50}
                   value={state.mentionLimit}
                   onChange={(e) => update({ mentionLimit: e.target.value })}
+                  placeholder="Limit"
                   className="font-mono text-sm"
                 />
               </div>
@@ -309,6 +311,7 @@ export default function AutomodTool() {
               <Input
                 value={state.exemptRoles}
                 onChange={(e) => update({ exemptRoles: e.target.value })}
+                placeholder="Role IDs"
                 className="font-mono text-xs"
               />
             </div>
@@ -317,6 +320,7 @@ export default function AutomodTool() {
               <Input
                 value={state.exemptChannels}
                 onChange={(e) => update({ exemptChannels: e.target.value })}
+                placeholder="Channel IDs"
                 className="font-mono text-xs"
               />
             </div>
@@ -370,7 +374,7 @@ export default function AutomodTool() {
                         ),
                       })
                     }
-                    placeholder="Custom block message (optional)"
+                    placeholder="Block message"
                     className="text-xs"
                   />
                 )}
@@ -386,7 +390,7 @@ export default function AutomodTool() {
                         ),
                       })
                     }
-                    placeholder="Alert channel ID"
+                    placeholder="Channel ID"
                     className="font-mono text-xs"
                   />
                 )}
@@ -401,7 +405,7 @@ export default function AutomodTool() {
                         ),
                       })
                     }
-                    placeholder="Duration seconds"
+                    placeholder="Seconds"
                     className="font-mono text-xs"
                   />
                 )}

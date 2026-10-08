@@ -86,7 +86,7 @@ export default function InviteTool() {
             <Input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="discord.gg/… or invite code"
+              placeholder="discord.gg/…"
               className="font-mono text-sm flex-1 min-w-0"
             />
             <Button type="submit" disabled={loading || !input.trim()} className="shrink-0 w-full sm:w-auto">

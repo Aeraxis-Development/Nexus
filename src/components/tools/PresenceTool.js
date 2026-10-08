@@ -142,6 +142,7 @@ export default function PresenceTool() {
                     <Input
                       value={state.name}
                       onChange={(e) => update({ name: e.target.value.slice(0, 128) })}
+                      placeholder="Name"
                       className="text-sm"
                     />
                   </div>
@@ -150,6 +151,7 @@ export default function PresenceTool() {
                     <Input
                       value={state.state}
                       onChange={(e) => update({ state: e.target.value.slice(0, 128) })}
+                      placeholder="State"
                       className="text-sm"
                     />
                   </div>
@@ -158,6 +160,7 @@ export default function PresenceTool() {
                     <Input
                       value={state.details}
                       onChange={(e) => update({ details: e.target.value.slice(0, 128) })}
+                      placeholder="Details"
                       className="text-sm"
                     />
                   </div>
@@ -168,6 +171,7 @@ export default function PresenceTool() {
                   <Input
                     value={state.state}
                     onChange={(e) => update({ state: e.target.value.slice(0, 128) })}
+                    placeholder="Status"
                     className="text-sm"
                   />
                 </div>
@@ -179,7 +183,7 @@ export default function PresenceTool() {
                   <Input
                     value={state.url}
                     onChange={(e) => update({ url: e.target.value })}
-                    placeholder="https://twitch.tv/…"
+                    placeholder="https://…"
                     className="font-mono text-xs"
                   />
                 </div>
@@ -190,6 +194,7 @@ export default function PresenceTool() {
                 <Input
                   value={state.applicationId}
                   onChange={(e) => update({ applicationId: e.target.value.replace(/\D/g, "") })}
+                  placeholder="Snowflake ID"
                   className="font-mono text-xs"
                 />
               </div>
@@ -198,25 +203,25 @@ export default function PresenceTool() {
                 <Input
                   value={state.largeImage}
                   onChange={(e) => update({ largeImage: e.target.value })}
-                  placeholder="large_image key"
+                  placeholder="Large image"
                   className="font-mono text-xs"
                 />
                 <Input
                   value={state.largeText}
                   onChange={(e) => update({ largeText: e.target.value.slice(0, 128) })}
-                  placeholder="large_text"
+                  placeholder="Large text"
                   className="text-xs"
                 />
                 <Input
                   value={state.smallImage}
                   onChange={(e) => update({ smallImage: e.target.value })}
-                  placeholder="small_image key"
+                  placeholder="Small image"
                   className="font-mono text-xs"
                 />
                 <Input
                   value={state.smallText}
                   onChange={(e) => update({ smallText: e.target.value.slice(0, 128) })}
-                  placeholder="small_text"
+                  placeholder="Small text"
                   className="text-xs"
                 />
               </div>

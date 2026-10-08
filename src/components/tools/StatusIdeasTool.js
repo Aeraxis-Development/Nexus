@@ -77,7 +77,7 @@ export default function StatusIdeasTool() {
           <Input
             value={custom}
             onChange={(e) => setCustom(e.target.value)}
-            placeholder="e.g. buffering… please stand by"
+            placeholder="Custom status"
             maxLength={128}
             className="flex-1"
           />
@@ -91,7 +91,7 @@ export default function StatusIdeasTool() {
           </Button>
         </div>
         <div className="mt-3">
-          <CopyField label="Copy" value={custom} placeholder="Type a status first" />
+          <CopyField label="Copy" value={custom} placeholder="Status" />
         </div>
       </ToolSection>
     </ToolPanel>

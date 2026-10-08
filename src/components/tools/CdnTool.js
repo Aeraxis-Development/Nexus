@@ -176,7 +176,7 @@ export default function CdnTool() {
                 value={params.userId}
                 onChange={onIdChange("userId")}
                 className="font-mono text-sm mb-3"
-                placeholder="123456789012345678"
+                placeholder="Snowflake ID"
                 onKeyDown={(e) => e.key === "Enter" && canResolve() && resolve()}
               />
             </>
@@ -192,7 +192,7 @@ export default function CdnTool() {
                 value={params.guildId}
                 onChange={onIdChange("guildId")}
                 className="font-mono text-sm mb-3"
-                placeholder="123456789012345678"
+                placeholder="Snowflake ID"
                 onKeyDown={(e) => e.key === "Enter" && canResolve() && resolve()}
               />
             </>
@@ -204,7 +204,7 @@ export default function CdnTool() {
                 value={params.emojiId}
                 onChange={onIdChange("emojiId")}
                 className="font-mono text-sm mb-3"
-                placeholder="123456789012345678"
+                placeholder="Snowflake ID"
                 onKeyDown={(e) => e.key === "Enter" && canResolve() && resolve()}
               />
             </>
@@ -216,7 +216,7 @@ export default function CdnTool() {
                 value={params.appId}
                 onChange={onIdChange("appId")}
                 className="font-mono text-sm mb-3"
-                placeholder="123456789012345678"
+                placeholder="Snowflake ID"
                 onKeyDown={(e) => e.key === "Enter" && canResolve() && resolve()}
               />
             </>
@@ -228,7 +228,7 @@ export default function CdnTool() {
                 value={params.roleId}
                 onChange={onIdChange("roleId")}
                 className="font-mono text-sm mb-3"
-                placeholder="123456789012345678"
+                placeholder="Snowflake ID"
                 onKeyDown={(e) => e.key === "Enter" && canResolve() && resolve()}
               />
             </>
@@ -290,7 +290,7 @@ export default function CdnTool() {
                       set("hash", e.target.value.trim());
                     }}
                     className="font-mono text-sm"
-                    placeholder="Optional override"
+                    placeholder="Hash"
                   />
                 </>
               )}
@@ -345,7 +345,7 @@ export default function CdnTool() {
           <CopyField
             label="CDN URL"
             value={url}
-            placeholder="Enter IDs and click Fetch via API"
+            placeholder="CDN URL"
           />
 
           <div className="mt-5 rounded-xl border border-[var(--nx-border)] bg-[var(--nx-bg-input)] p-4 flex flex-col items-center justify-center min-h-[200px] gap-3">

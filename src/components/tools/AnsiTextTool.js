@@ -47,7 +47,7 @@ export default function AnsiTextTool() {
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 sm:gap-4">
         <ToolSection title="Style" description="Discord ANSI colors for ```ansi code blocks">
           <FieldLabel>Text</FieldLabel>
-          <Input value={text} onChange={(e) => setText(e.target.value)} className="mb-4" maxLength={200} />
+          <Input value={text} onChange={(e) => setText(e.target.value)} placeholder="Text" className="mb-4" maxLength={200} />
 
           <FieldLabel>Foreground</FieldLabel>
           <div className="grid grid-cols-4 gap-2 mb-4">
